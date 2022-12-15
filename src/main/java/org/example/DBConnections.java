@@ -5,16 +5,57 @@ import java.util.ArrayList;
 
 public class DBConnections {
 
-    public static void populateLibrary(Library library){
+    private static Connection startConnection() {
         Connection connection = null;
         try {
-            // create a database connection
             connection = DriverManager.getConnection("jdbc:sqlite:music-library.db");
-            Statement statement = connection.createStatement();
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        }
+        return connection;
+    }
+
+    private static Statement statementCreation(Connection connection){
+        Statement statement = null;
+        try{
+            statement = connection.createStatement();
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        }
+        return statement;
+    }
 
-            ResultSet rs = statement.executeQuery("SELECT songs.name, songs.audioDBId, songs.likes, artists.name, artists.audioDBId, albums.name, albums.audioDBId FROM songs INNER JOIN artists ON songs.audioDBArtistId == artists.id INNER JOIN albums ON songs.audioDBAlbumId == albums.id;");
+    private static ResultSet queryExecution(Statement statement, String query){
+        ResultSet rs = null;
+        try{
+            rs = statement.executeQuery(query);
+        } catch (SQLException e) {
+            // connection close failed.
+            System.err.println(e.getMessage());
+        }
+        return rs;
+    }
+    private static void closeConnection(Connection connection){
+        try {
+            if (connection != null)
+                connection.close();
+        } catch (SQLException e) {
+            // connection close failed.
+            System.err.println(e.getMessage());
+        }
+    }
 
+    public static void populateLibrary(Library library){
+        Connection connection = startConnection();
+        Statement statement = statementCreation(connection);
+        String query = "SELECT songs.name, songs.audioDBId, songs.nlisteners, artists.name, artists.audioDBId, albums.name, albums.audioDBId FROM songs INNER JOIN artists ON songs.audioDBArtistId == artists.id INNER JOIN albums ON songs.audioDBAlbumId == albums.id;";
+        ResultSet rs = queryExecution(statement,query);
+        try {
             while (rs.next()) {
                 Song newSong = new Song();
                 newSong.setName(rs.getString(1));
@@ -28,122 +69,52 @@ public class DBConnections {
                 newAlbum.setAudioDbId(Integer.parseInt(rs.getString(7)));
                 newSong.setAlbum(newAlbum);
 
-                newSong.setLikes(rs.getInt(3));
+                newSong.setListeners(rs.getInt(3));
 
                 newSong.setAudioDBId(Integer.parseInt(rs.getString(2)));
                 library.addSong(newSong);
             }
         } catch (SQLException e) {
-            // if the error message is "out of memory",
-            // it probably means no database file is found
+            // connection close failed.
             System.err.println(e.getMessage());
         } finally {
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-            }
+           closeConnection(connection);
         }
-    }
-
-    public static void getComprehensive(){
-
-    }
-    public static void getAllSongs(){
-        Connection connection = null;
-        try {
-            // create a database connection
-            connection = DriverManager.getConnection("jdbc:sqlite:music-library.db");
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);  // set timeout to 30 sec.
-
-            ResultSet rs = statement.executeQuery("SELECT songs.name, artists.name, albums.name, songs.likes FROM songs INNER JOIN artists ON songs.audioDBArtistId == artists.id INNER JOIN albums ON songs.audioDBAlbumId == albums.id;");
-
-//            return rs;
-//            while (rs.next()) {
-//                // read the result set
-////                    rs.getString(1);
-//
-////                System.out.println("name = " + rs.getString("name"));
-////                System.out.println("id = " + rs.getInt("id"));
-//                Song newSong = new Song();
-//                newSong.setName(rs.getString(1));
-//
-//                Artist newArtist = new Artist(rs.getString(2));
-//                newSong.setPerformer(newArtist);
-//
-//                Album newAlbum = new Album(rs.getString(3));
-//                newAlbum.setArtist(newArtist);
-//                newSong.setAlbum(newAlbum);
-//
-//                newSong.setLikes(rs.getInt(4));
-////                library.addSong(newSong);
-//            }
-        } catch (SQLException e) {
-            // if the error message is "out of memory",
-            // it probably means no database file is found
-            System.err.println(e.getMessage());
-        } finally {
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-            }
-        }
-//        return null;
     }
 
     public static ArrayList<String> getAllArtists(){
         ArrayList<String> artistsList = new ArrayList<String>();
-        Connection connection = null;
-        try {
-            // create a database connection
-            connection = DriverManager.getConnection("jdbc:sqlite:music-library.db");
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-            ResultSet rs = statement.executeQuery("SELECT name FROM artists");
+        Connection connection = startConnection();
+        Statement statement = statementCreation(connection);
+        String query = "SELECT name FROM artists";
+        ResultSet rs = queryExecution(statement,query);
+
+        try{
             while (rs.next()) {
-                // read the result set
-//                System.out.println("name = " + rs.getString("name"));
-//                System.out.println("id = " + rs.getInt("id"));
                 artistsList.add(rs.getString("name"));
-
             }
         } catch (SQLException e) {
             // if the error message is "out of memory",
             // it probably means no database file is found
             System.err.println(e.getMessage());
         } finally {
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-            }
+            closeConnection(connection);
         }
+
         return artistsList;
     }
 
     public static ArrayList<String> getAllAlbums(){
-        Connection connection = null;
         ArrayList<String> albumList = new ArrayList<String>();
-        try {
-            // create a database connection
-            connection = DriverManager.getConnection("jdbc:sqlite:music-library.db");
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-            ResultSet rs = statement.executeQuery("SELECT name FROM albums");
+        Connection connection = startConnection();
+        Statement statement = statementCreation(connection);
+        String query = "SELECT name FROM albums";
+        ResultSet rs = queryExecution(statement,query);
+
+        try{
             while (rs.next()) {
-                // read the result set
-//                System.out.println("name = " + rs.getString("name"));
-//                System.out.println("id = " + rs.getInt("id"));
                 albumList.add(rs.getString("name"));
             }
         } catch (SQLException e) {
@@ -151,14 +122,9 @@ public class DBConnections {
             // it probably means no database file is found
             System.err.println(e.getMessage());
         } finally {
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-            }
+            closeConnection(connection);
         }
+
         return albumList;
     }
 
@@ -248,14 +214,12 @@ public class DBConnections {
 
     public static Artist findArtist(int audioDBID){
         String query = "SELECT * FROM artists WHERE id == " + audioDBID;
-        Connection connection = null;
-        try {
-            // create a database connection
-            connection = DriverManager.getConnection("jdbc:sqlite:music-library.db");
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-            ResultSet rs = statement.executeQuery(query);
+        Connection connection = startConnection();
+        Statement statement = statementCreation(connection);
+        ResultSet rs = queryExecution(statement,query);
+
+        try{
             if(rs.next()){
                 Artist newArtist = new Artist("");
                 newArtist.setAudioDbId(rs.getInt("audioDBId"));
@@ -268,14 +232,9 @@ public class DBConnections {
             // it probably means no database file is found
             System.err.println(e.getMessage());
         } finally {
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-            }
+            closeConnection(connection);
         }
+
         return null;
     }
 
@@ -283,19 +242,16 @@ public class DBConnections {
 
     public static Album findAlbum(int audioDBID){
         String query = "SELECT * FROM albums WHERE id == " + audioDBID;
-        Connection connection = null;
-        try {
-            // create a database connection
-            connection = DriverManager.getConnection("jdbc:sqlite:music-library.db");
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-            ResultSet rs = statement.executeQuery(query);
+        Connection connection = startConnection();
+        Statement statement = statementCreation(connection);
+        ResultSet rs = queryExecution(statement,query);
+
+        try{
             if(rs.next()){
                 Album newAlbum = new Album("");
                 newAlbum.setAudioDbId(rs.getInt("audioDBId"));
                 newAlbum.setName(rs.getString("name"));
-//                newAlbum.setArtist(rs.getString("country"));
                 return newAlbum;
             }
         } catch (SQLException e) {
@@ -303,27 +259,20 @@ public class DBConnections {
             // it probably means no database file is found
             System.err.println(e.getMessage());
         } finally {
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-            }
+            closeConnection(connection);
         }
+
         return null;
     }
 
     public static Song findSong(int audioDBID){
         String query = "SELECT * FROM songs WHERE id == " + audioDBID;
-        Connection connection = null;
-        try {
-            // create a database connection
-            connection = DriverManager.getConnection("jdbc:sqlite:music-library.db");
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-            ResultSet rs = statement.executeQuery(query);
+        Connection connection = startConnection();
+        Statement statement = statementCreation(connection);
+        ResultSet rs = queryExecution(statement,query);
+
+        try{
             if(rs.next()){
                 Song newSong = new Song();
                 newSong.setAudioDBId(rs.getInt("audioDBId"));
@@ -335,14 +284,9 @@ public class DBConnections {
             // it probably means no database file is found
             System.err.println(e.getMessage());
         } finally {
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-            }
+            closeConnection(connection);
         }
+
         return null;
     }
 }

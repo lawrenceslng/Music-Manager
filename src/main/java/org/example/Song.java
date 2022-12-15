@@ -9,7 +9,7 @@ public class Song extends Entity implements Comparable<Song>{
     protected SongInterval duration;
     protected String genre;
 
-    protected int likes;
+    protected int numListeners;
 
     protected int audioDBId;
 
@@ -20,7 +20,7 @@ public class Song extends Entity implements Comparable<Song>{
         performer = new Artist("");
         duration = new SongInterval(0);
         genre = "";
-        likes = 0;
+        numListeners = 0;
 
     }
     public Song(String name, int length) {
@@ -29,7 +29,7 @@ public class Song extends Entity implements Comparable<Song>{
         performer = new Artist("");
         duration = new SongInterval(length);
         genre = "";
-        likes = 0;
+        numListeners = 0;
     }
 
     public String getGenre() {
@@ -65,12 +65,12 @@ public class Song extends Entity implements Comparable<Song>{
         this.performer = performer;
     }
 
-    public int getLikes() {
-        return likes;
+    public int getListeners() {
+        return numListeners;
     }
 
-    public void setLikes(int likes) {
-        this.likes = likes;
+    public void setListeners(int nListeners) {
+        this.numListeners = nListeners;
     }
 
     public int getAudioDBId() {
@@ -91,11 +91,11 @@ public class Song extends Entity implements Comparable<Song>{
     }
 
     public String toXML(){
-        return "<song id=\"" + this.entityID + "\"><title>" + this.name + "</title><artist id=\"" + this.performer.entityID + "\">" + this.performer.getName() + "</artist><album id=\"" + this.album.entityID +">"+ this.album.getName() + "</album><length>" + this.duration + "</length><likes>" + this.likes + "</likes></song>";
+        return "<song id=\"" + this.entityID + "\"><title>" + this.name + "</title><artist id=\"" + this.performer.entityID + "\">" + this.performer.getName() + "</artist><album id=\"" + this.album.entityID +">"+ this.album.getName() + "</album><length>" + this.duration + "</length><numOfListeners>" + this.numListeners + "</numOfListeners></song>";
     }
     public String toSQL() {
-        return "insert into songs (id, audioDBId, name, audioDBArtistId, audioDBAlbumId, likes) values (" + this.audioDBId + ", " + this.audioDBId + ", \"" + this.name + "\", "
-                + this.performer.audioDbId  + ", " + this.album.audioDbId + ", " + this.likes + ");";
+        return "insert into songs (id, audioDBId, name, audioDBArtistId, audioDBAlbumId, nlisteners) values (" + this.audioDBId + ", " + this.audioDBId + ", \"" + this.name + "\", "
+                + this.performer.audioDbId  + ", " + this.album.audioDbId + ", " + this.numListeners + ");";
     }
 
     public void fromSQL(ResultSet rs) {
@@ -109,9 +109,9 @@ public class Song extends Entity implements Comparable<Song>{
 
     @Override
     public int compareTo(Song o) {
-        if(this.likes > o.likes){
+        if(this.numListeners > o.numListeners){
             return -1;
-        } else if(this.likes < o.likes){
+        } else if(this.numListeners < o.numListeners){
             return 1;
         } else {
             return 0;

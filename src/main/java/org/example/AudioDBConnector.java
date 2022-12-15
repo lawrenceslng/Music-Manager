@@ -29,16 +29,15 @@ public class AudioDBConnector {
     }
 
     public static Artist artistSearch(String artistName) {
-//        String requestURL = "https://www.theaudiodb.com/api/v1/json/523532/search.php?s=";
-//        String artist = artistName;
         String query = "search.php?s=" + artistName;
         URL url = formURL(query);
         StringBuilder response = new StringBuilder();
+
         if(url != null){
             response = connectToAudioDB(url);
         }
 
-        Artist newArtist = new Artist(artistName);
+        Artist newArtist = new Artist("");
         if(response != null){
             parseArtistSearchResponse(newArtist, response);
         }
@@ -47,11 +46,10 @@ public class AudioDBConnector {
     }
 
     public static Artist artistIdSearch(int audioDBId) {
-//        String requestURL = "https://www.theaudiodb.com/api/v1/json/523532/search.php?s=";
-//        String artist = artistName;
         String query = "artist.php?i=" + audioDBId;
         URL url = formURL(query);
         StringBuilder response = new StringBuilder();
+
         if(url != null){
             response = connectToAudioDB(url);
         }
@@ -64,16 +62,15 @@ public class AudioDBConnector {
         return newArtist;
     }
     public static Album albumSearch(String artistName, String albumName) {
-//        String requestURL = "https://www.theaudiodb.com/api/v1/json/523532/search.php?s=";
-//        String artist = artistName;
         String query = "searchalbum.php?s=" + artistName + "&a=" + albumName;
         URL url = formURL(query);
         StringBuilder response = new StringBuilder();
+
         if(url != null){
             response = connectToAudioDB(url);
         }
 
-        Album newAlbum = new Album(albumName);
+        Album newAlbum = new Album("");
         if(response != null){
             parseAlbumSearchResponse(newAlbum, response);
         }
@@ -81,11 +78,10 @@ public class AudioDBConnector {
         return newAlbum;
     }
     public static Album albumIdSearch(int audioDBId) {
-//        String requestURL = "https://www.theaudiodb.com/api/v1/json/523532/search.php?s=";
-//        String artist = artistName;
         String query = "album.php?m=" + audioDBId;
         URL url = formURL(query);
         StringBuilder response = new StringBuilder();
+
         if(url != null){
             response = connectToAudioDB(url);
         }
@@ -99,11 +95,10 @@ public class AudioDBConnector {
     }
 
     public static Song songSearch(String artistName, String songName) {
-//        String requestURL = "https://www.theaudiodb.com/api/v1/json/523532/search.php?s=";
-//        String artist = artistName;
         String query = "searchtrack.php?s=" + artistName +"&t=" + songName;
         URL url = formURL(query);
         StringBuilder response = new StringBuilder();
+
         if(url != null){
             response = connectToAudioDB(url);
         }
@@ -123,7 +118,7 @@ public class AudioDBConnector {
             int code = httpConnection.getResponseCode();
 
             String message = httpConnection.getResponseMessage();
-            System.out.println(code + " " + message);
+//            System.out.println(code + " " + message);
             if (code != HttpURLConnection.HTTP_OK) {
                 return null;
             }
@@ -139,25 +134,22 @@ public class AudioDBConnector {
         return response;
     }
     private static void parseArtistSearchResponse(Artist artist, StringBuilder response){
-        // parse idArtist -> audioDBId, strCountryCode -> country,
-
-        // make API call to discography to get nAlbums
-
-        // use entityID as db id
-
         try {
             JSONParser parser = new JSONParser();
             Object obj = parser.parse(response.toString());
             JSONObject jsonObject = (JSONObject) obj;
-            JSONArray artists = (JSONArray) jsonObject.get("artists"); // get the list of all artists returned.
-            JSONObject artistArray = (JSONObject) artists.get(0);  // I happen to know that the beatles is the first entry. Otherwise I'd iterate.
+            JSONArray artists = (JSONArray) jsonObject.get("artists");
+            if(artists == null){
+                System.out.print("Artist not found online...");
+//                System.out.println("--------------------------------");
+                return;
+            }
+
+            JSONObject artistArray = (JSONObject) artists.get(0);
 
             int audioDBId = Integer.parseInt((String) artistArray.get("idArtist"));
-            System.out.println("audioDBId: " + audioDBId);
             String country = (String) artistArray.get("strCountryCode");
-            System.out.println("country: " + country);
             String artistName = (String) artistArray.get("strArtist");
-            System.out.println("artist: " + artistName);
 
             artist.setAudioDbId(audioDBId);
             artist.setNationality(country);
@@ -169,25 +161,22 @@ public class AudioDBConnector {
     }
 
     private static void parseAlbumSearchResponse(Album album, StringBuilder response){
-        // parse idArtist -> audioDBId, strCountryCode -> country,
-
-        // make API call to discography to get nAlbums
-
-        // use entityID as db id
-
         try {
             JSONParser parser = new JSONParser();
             Object obj = parser.parse(response.toString());
             JSONObject jsonObject = (JSONObject) obj;
-            JSONArray albums = (JSONArray) jsonObject.get("album"); // get the list of all artists returned.
-            JSONObject albumArray = (JSONObject) albums.get(0);  // I happen to know that the beatles is the first entry. Otherwise I'd iterate.
+            JSONArray albums = (JSONArray) jsonObject.get("album");
+            if(albums == null){
+                System.out.print("Album not found online...");
+//                System.out.println("--------------------------------");
+                return;
+            }
+
+            JSONObject albumArray = (JSONObject) albums.get(0);
 
             int audioDBId = Integer.parseInt((String) albumArray.get("idAlbum"));
-            System.out.println("audioDBId: " + audioDBId);
             int idArtist = Integer.parseInt((String) albumArray.get("idArtist"));
-            System.out.println("Artist ID: " + idArtist);
             String albumName = (String) albumArray.get("strAlbum");
-            System.out.println("album: " + albumName);
 
             Artist artistExists = DBConnections.findArtist(idArtist);
             if(artistExists != null){
@@ -208,52 +197,43 @@ public class AudioDBConnector {
     }
 
     private static void parseSongSearchResponse(Song song, StringBuilder response){
-//        idTrack
-//        idAlbum
-//        idArtist
-
         try {
             JSONParser parser = new JSONParser();
             Object obj = parser.parse(response.toString());
             JSONObject jsonObject = (JSONObject) obj;
-            JSONArray track = (JSONArray) jsonObject.get("track"); // get the list of all artists returned.
-            JSONObject trackArray = (JSONObject) track.get(0);  // I happen to know that the beatles is the first entry. Otherwise I'd iterate.
+            JSONArray track = (JSONArray) jsonObject.get("track");
+            if(track == null){
+                System.out.print("Song not found online...");
+//                System.out.println("--------------------------------");
+                return;
+            }
+
+            JSONObject trackArray = (JSONObject) track.get(0);
 
             String songName = (String) trackArray.get("strTrack");
-            System.out.println("song name: " + songName);
             int audioDBId = Integer.parseInt((String) trackArray.get("idTrack"));
-            System.out.println("audioDBId: " + audioDBId);
             int idAlbum = Integer.parseInt((String) trackArray.get("idAlbum"));
-            System.out.println("Album ID: " + idAlbum);
             int idArtist = Integer.parseInt((String) trackArray.get("idArtist"));
-            System.out.println("Artist ID: " + idArtist);
             int numListeners = Integer.parseInt((String) trackArray.get("intTotalListeners"));
-            System.out.println("Number of Listeners: " + numListeners);
 
             // check if artist or album already exists in db
             Artist artistExists = DBConnections.findArtist(idArtist);
             Album albumExists = DBConnections.findAlbum(idAlbum);
             boolean aExists = artistExists != null;
             boolean alExists = albumExists != null;
-            System.out.println("artist already exists: " + aExists);
-            System.out.println("album already exists: " + alExists);
 
             song.setName(songName);
             if(artistExists != null){
-                System.out.println("artist is not null");
                 song.setPerformer(artistExists);
             } else {
-                // create new artist + insert artist into db
                 Artist newArtist = artistIdSearch(idArtist);
                 DBConnections.addNewArtist(newArtist);
                 song.setPerformer(newArtist);
             }
 
             if(albumExists != null){
-                System.out.println("album is not null");
                 song.setAlbum(albumExists);
             } else {
-                // create new album + insert album into db
                 Album newAlbum = albumIdSearch(idAlbum);
                 DBConnections.addNewAlbum(newAlbum);
                 song.setAlbum(newAlbum);
@@ -261,7 +241,7 @@ public class AudioDBConnector {
 
             song.setAudioDBId(audioDBId);
             song.setName(songName);
-            song.setLikes(numListeners);
+            song.setListeners(numListeners);
         } catch (ParseException e) {
             System.out.println("Error parsing JSON");
             return;

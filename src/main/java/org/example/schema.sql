@@ -1,4 +1,4 @@
-CREATE TABLE songs (id INTEGER NOT NULL PRIMARY KEY, audioDBId INTEGER, name VARCHAR(50), artist integer, audioDBArtistId INTEGER, album integer, audioDBAlbumId INTEGER, duration INTEGER, likes INTEGER, genre TEXT);
+CREATE TABLE songs (id INTEGER NOT NULL PRIMARY KEY, audioDBId INTEGER, name VARCHAR(50), artist integer, audioDBArtistId INTEGER, album integer, audioDBAlbumId INTEGER, duration INTEGER, nlisteners INTEGER, genre TEXT);
 CREATE TABLE albums (id INTEGER NOT NULL PRIMARY KEY, audioDBId INTEGER, name TEXT NOT NULL, artist INTEGER, audioDBArtistId INTEGER, nSongs INTEGER);
 CREATE TABLE artists (id INTEGER NOT NULL PRIMARY KEY, audioDBId INTEGER, nAlbums INTEGER, name TEXT NOT NULL, nSongs INTEGER, country TEXT);
 

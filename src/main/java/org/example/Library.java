@@ -43,14 +43,15 @@ public class Library {
         Playlist randomPlaylist = new Playlist();
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Generating random playlist based on minimum number of likes...");
-        System.out.println("What is the minimum number of likes you wish to set as threshold? ");
+        System.out.println("Generating random playlist based on minimum number of listeners...");
+        System.out.println("What is the minimum number of listeners you wish to set as threshold? ");
+        System.out.print(">> ");
         int minNum = input.nextInt();
 
-        System.out.println("Generating random playlist with minimum of " + minNum + " likes.");
+        System.out.println("Generating random playlist with minimum of " + minNum + " listeners...");
 
         for(Song song : this.songs){
-            if(song.getLikes() >= minNum){
+            if(song.getListeners() >= minNum){
                 randomPlaylist.addSong(song);
             }
         }

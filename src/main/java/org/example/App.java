@@ -59,7 +59,7 @@ public class App
             System.out.println("Type '1' to display songs in the library");
             System.out.println("Type '2' to display artists in the library");
             System.out.println("Type '3' to display albums in the library");
-            System.out.println("Type '4' to display songs+artists+albums in the library");
+            System.out.println("Type '4' to display a table of songs + artists + albums in the library");
 
             System.out.println("Type '0' to go back");
 
@@ -173,10 +173,8 @@ public class App
         for(Song song : songList){
             Artist songArtist = DBConnections.findArtist(song.getPerformer().getAudioDbId());
             artistList.add(songArtist);
-//            library.addArtist(songArtist);
             Album songAlbum = DBConnections.findAlbum(song.getAlbum().getAudioDbId());
             albumList.add(songAlbum);
-//            library.addAlbum(songAlbum);
         }
 
         String leftAlignFormat = "| %-28s | %-22s | %-22s |%n";
@@ -198,35 +196,32 @@ public class App
     private static void addNewSong(){
         Scanner input = new Scanner(System.in);
         System.out.print("Type in artist name here: ");
-        String artistName = input.nextLine();
-        System.out.println(artistName);
+        String artistName = input.nextLine().trim();
         System.out.print("Type in song name here: ");
-        String songName = input.nextLine();
-        System.out.println(songName);
-        // hit up api
+        String songName = input.nextLine().trim();
 
         Song newSong = AudioDBConnector.songSearch(artistName, songName);
-        // use Return track details from artist/track name
 
-        // if found match, then populate DB, otherwise ask to type again
+        if(newSong.name != "") {
 
-        // get additional info
-        System.out.println("new song DB ID: " + newSong.getAudioDBId());
+
 //        System.out.println(DBConnections.findSong(newSong.getAudioDBId()));
-        if(DBConnections.findSong(newSong.getAudioDBId()) != null){
-            System.out.println("Song already in DB!");
-        } else {
-            // store in DB
-            System.out.println("Storing song in DB ... ");
-            library.addSong(newSong);
-            boolean success = DBConnections.addNewSong(newSong);
-            if(success){
-                System.out.println("Song added to DB");
+            if (DBConnections.findSong(newSong.getAudioDBId()) != null) {
+                System.out.println("Song already in DB!");
             } else {
-                System.out.println("System Error... returning to last menu...");
+                // store in DB
+                System.out.println("Storing song in DB ... ");
+                library.addSong(newSong);
+                boolean success = DBConnections.addNewSong(newSong);
+                if (success) {
+                    System.out.println("Song added to DB");
+                } else {
+                    System.out.println("System Error... returning to last menu...");
+                }
             }
+        }else {
+            System.out.println("Nothing added to library, please try again.");
         }
-
 
         System.out.println("--------------------------------");
     }
@@ -234,26 +229,32 @@ public class App
     private static void addNewArtist(){
         Scanner input = new Scanner(System.in);
         System.out.print("Type in artist name here: ");
-        String artistName = input.nextLine();
+        String artistName = input.nextLine().trim();
         System.out.println(artistName);
         // hit up api
 
         // use Return Artist details from artist name + Return Discography for an Artist with Album names and year only
         Artist newArtist = AudioDBConnector.artistSearch(artistName);
 
-        // see if artist already exists
+        if(newArtist.name != "") {
 
-        if(DBConnections.findArtist(newArtist.getAudioDbId()) != null){
-            System.out.println("Artist already in DB!");
-        } else {
-            // store in DB
-            System.out.println("Storing artist in DB ... ");
-            boolean success = DBConnections.addNewArtist(newArtist);
-            if(success){
-                System.out.println("Artist added to DB!");
+
+            // see if artist already exists
+
+            if (DBConnections.findArtist(newArtist.getAudioDbId()) != null) {
+                System.out.println("Artist already in DB!");
             } else {
-                System.out.println("System Error... returning to last menu...");
+                // store in DB
+                System.out.println("Storing artist in DB ... ");
+                boolean success = DBConnections.addNewArtist(newArtist);
+                if (success) {
+                    System.out.println("Artist added to DB!");
+                } else {
+                    System.out.println("System Error... returning to last menu...");
+                }
             }
+        }else {
+            System.out.println("Nothing added to library, please try again.");
         }
         System.out.println("--------------------------------");
     }
@@ -261,28 +262,32 @@ public class App
     private static void addNewAlbum(){
         Scanner input = new Scanner(System.in);
         System.out.print("Type in artist name here: ");
-        String artistName = input.nextLine();
-        System.out.println(artistName);
+        String artistName = input.nextLine().trim();
         System.out.print("Type in Album name here: ");
-        String albumName = input.nextLine();
+        String albumName = input.nextLine().trim();
 
 
         // hit up api
         Album newAlbum = AudioDBConnector.albumSearch(artistName, albumName);
+        System.out.println(newAlbum.getName());
+        if(newAlbum.name != "") {
 
-        // see if artist already exists
+            // see if artist already exists
 
-        if(DBConnections.findAlbum(newAlbum.getAudioDbId()) != null){
-            System.out.println("Album already in DB!");
-        } else {
-            // store in DB
-            System.out.println("Storing Album in DB ... ");
-            boolean success = DBConnections.addNewAlbum(newAlbum);
-            if(success){
-                System.out.println("Album added to DB!");
+            if (DBConnections.findAlbum(newAlbum.getAudioDbId()) != null) {
+                System.out.println("Album already in DB!");
             } else {
-                System.out.println("System Error... returning to last menu...");
+                // store in DB
+                System.out.println("Storing Album in DB ... ");
+                boolean success = DBConnections.addNewAlbum(newAlbum);
+                if (success) {
+                    System.out.println("Album added to DB!");
+                } else {
+                    System.out.println("System Error... returning to last menu...");
+                }
             }
+        } else {
+            System.out.println("Nothing added to library, please try again.");
         }
         System.out.println("--------------------------------");
     }
@@ -337,8 +342,14 @@ public class App
                 generatePlaylistMenu();
                 mainMenuNavigation(mainMenu());
                 break;
+            case 0:
+                System.out.println("Thank you for using Music Manager!");
+                System.out.println("Exiting app... Bye bye!");
+                System.out.println("--------------------------------");
+                System.exit(0);
+                break;
             default: // unknown failure, exit app
-                System.out.println("exiting app");
+                System.out.println("Encountering issue... Exiting app...");
                 System.exit(0);
         }
     }
@@ -354,10 +365,8 @@ public class App
 
         DBConnections.populateLibrary(library);
 
-        // UI Interface
-
         int mainMenuInput = mainMenu();
-        System.out.println(mainMenuInput);
+//        System.out.println(mainMenuInput);
 
         mainMenuNavigation(mainMenuInput);
     }

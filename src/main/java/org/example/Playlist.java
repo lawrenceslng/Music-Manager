@@ -69,7 +69,7 @@ public class Playlist {
         System.out.println("---------------------------");
         System.out.println("Song order in PlayList");
         for(Song song : this.listOfSongs){
-            System.out.println("name: " + song.getName() + "; likes: " + song.getLikes());
+            System.out.println("name: " + song.getName() + "; likes: " + song.getListeners());
         }
         System.out.println("---------------------------");
     }
