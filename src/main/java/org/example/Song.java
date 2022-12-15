@@ -94,8 +94,8 @@ public class Song extends Entity implements Comparable<Song>{
         return "<song id=\"" + this.entityID + "\"><title>" + this.name + "</title><artist id=\"" + this.performer.entityID + "\">" + this.performer.getName() + "</artist><album id=\"" + this.album.entityID +">"+ this.album.getName() + "</album><length>" + this.duration + "</length><likes>" + this.likes + "</likes></song>";
     }
     public String toSQL() {
-        return "insert into songs (id, name, audioDBArtistId, audioDBAlbumId) values (" + this.audioDBId + ", \"" + this.name + "\", "
-                + this.performer.audioDbId  + ", " + this.album.audioDbId + ");";
+        return "insert into songs (id, audioDBId, name, audioDBArtistId, audioDBAlbumId, likes) values (" + this.audioDBId + ", " + this.audioDBId + ", \"" + this.name + "\", "
+                + this.performer.audioDbId  + ", " + this.album.audioDbId + ", " + this.likes + ");";
     }
 
     public void fromSQL(ResultSet rs) {

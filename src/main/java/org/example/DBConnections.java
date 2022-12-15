@@ -13,20 +13,24 @@ public class DBConnections {
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-            ResultSet rs = statement.executeQuery("SELECT songs.name, songs.likes, artists.name, albums.name FROM songs INNER JOIN artists ON songs.artist == artists.id INNER JOIN albums ON songs.album == albums.id;");
+            ResultSet rs = statement.executeQuery("SELECT songs.name, songs.audioDBId, songs.likes, artists.name, artists.audioDBId, albums.name, albums.audioDBId FROM songs INNER JOIN artists ON songs.audioDBArtistId == artists.id INNER JOIN albums ON songs.audioDBAlbumId == albums.id;");
 
             while (rs.next()) {
                 Song newSong = new Song();
                 newSong.setName(rs.getString(1));
 
-                Artist newArtist = new Artist(rs.getString(3));
+                Artist newArtist = new Artist(rs.getString(4));
+                newArtist.setAudioDbId(Integer.parseInt(rs.getString(5)));
                 newSong.setPerformer(newArtist);
 
-                Album newAlbum = new Album(rs.getString(4));
+                Album newAlbum = new Album(rs.getString(6));
                 newAlbum.setArtist(newArtist);
+                newAlbum.setAudioDbId(Integer.parseInt(rs.getString(7)));
                 newSong.setAlbum(newAlbum);
 
-                newSong.setLikes(rs.getInt(2));
+                newSong.setLikes(rs.getInt(3));
+
+                newSong.setAudioDBId(Integer.parseInt(rs.getString(2)));
                 library.addSong(newSong);
             }
         } catch (SQLException e) {
@@ -47,7 +51,7 @@ public class DBConnections {
     public static void getComprehensive(){
 
     }
-    public static void getAllSongs(Library library){
+    public static void getAllSongs(){
         Connection connection = null;
         try {
             // create a database connection
@@ -55,31 +59,28 @@ public class DBConnections {
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-            ResultSet rs = statement.executeQuery("SELECT songs.name, songs.likes, artists.name, albums.name FROM songs INNER JOIN artists ON songs.artist == artists.id INNER JOIN albums ON songs.album == albums.id;");
-//            int count = rs.getMetaData().getColumnCount();
-//            for(int i = 1; i <= count; i++){
-//                System.out.println(rs.getMetaData().getColumnName(i));
+            ResultSet rs = statement.executeQuery("SELECT songs.name, artists.name, albums.name, songs.likes FROM songs INNER JOIN artists ON songs.audioDBArtistId == artists.id INNER JOIN albums ON songs.audioDBAlbumId == albums.id;");
+
+//            return rs;
+//            while (rs.next()) {
+//                // read the result set
+////                    rs.getString(1);
+//
+////                System.out.println("name = " + rs.getString("name"));
+////                System.out.println("id = " + rs.getInt("id"));
+//                Song newSong = new Song();
+//                newSong.setName(rs.getString(1));
+//
+//                Artist newArtist = new Artist(rs.getString(2));
+//                newSong.setPerformer(newArtist);
+//
+//                Album newAlbum = new Album(rs.getString(3));
+//                newAlbum.setArtist(newArtist);
+//                newSong.setAlbum(newAlbum);
+//
+//                newSong.setLikes(rs.getInt(4));
+////                library.addSong(newSong);
 //            }
-
-            while (rs.next()) {
-                // read the result set
-//                    rs.getString(1);
-
-//                System.out.println("name = " + rs.getString("name"));
-//                System.out.println("id = " + rs.getInt("id"));
-                Song newSong = new Song();
-                newSong.setName(rs.getString(1));
-
-                Artist newArtist = new Artist(rs.getString(3));
-                newSong.setPerformer(newArtist);
-
-                Album newAlbum = new Album(rs.getString(4));
-                newAlbum.setArtist(newArtist);
-                newSong.setAlbum(newAlbum);
-
-                newSong.setLikes(rs.getInt(2));
-                library.addSong(newSong);
-            }
         } catch (SQLException e) {
             // if the error message is "out of memory",
             // it probably means no database file is found
@@ -93,6 +94,7 @@ public class DBConnections {
                 System.err.println(e.getMessage());
             }
         }
+//        return null;
     }
 
     public static ArrayList<String> getAllArtists(){
@@ -276,6 +278,8 @@ public class DBConnections {
         }
         return null;
     }
+
+
 
     public static Album findAlbum(int audioDBID){
         String query = "SELECT * FROM albums WHERE id == " + audioDBID;

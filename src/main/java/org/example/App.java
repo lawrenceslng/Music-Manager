@@ -165,15 +165,34 @@ public class App
         System.out.println( "--------------------------------" );
     }
 
-    private static void displayComprehensive(){
-//        String leftAlignFormat = "| %-25s | %-25s |%-25s |%n";
-//        System.out.format("+------------------------------+------------------------+------------------------+%n");
-//        System.out.format("| Song name     | Artist   |  Album    |%n");
-//        System.out.format("+-----------------+------+-------+%n");
-//        for (int i = 0; i < 5; i++) {
-//            System.out.format(leftAlignFormat, "some data" + i, "some artist", "some album");
-//        }
-//        System.out.format("+-----------------+------+%n");
+    private static void displayComprehensive() {
+
+        ArrayList<Song> songList = library.getSongs();
+        ArrayList<Artist> artistList = new ArrayList<>();
+        ArrayList<Album> albumList = new ArrayList<>();
+        for(Song song : songList){
+            Artist songArtist = DBConnections.findArtist(song.getPerformer().getAudioDbId());
+            artistList.add(songArtist);
+//            library.addArtist(songArtist);
+            Album songAlbum = DBConnections.findAlbum(song.getAlbum().getAudioDbId());
+            albumList.add(songAlbum);
+//            library.addAlbum(songAlbum);
+        }
+
+        String leftAlignFormat = "| %-28s | %-22s | %-22s |%n";
+        System.out.format("+------------------------------+------------------------+------------------------+%n");
+        System.out.format("| Song name                    | Artist                 |  Album                 |%n");
+        System.out.format("+------------------------------+------------------------+------------------------+%n");
+
+        for (int i = 0; i < songList.size(); i++) {
+            String songName = songList.get(i).getName();
+            String artistName = artistList.get(i).getName();
+            String albumName = albumList.get(i).getName();
+            System.out.format(leftAlignFormat, songName, artistName, albumName);
+        }
+        System.out.format("+------------------------------+------------------------+------------------------+%n");
+
+        System.out.println("--------------------------------");
     }
 
     private static void addNewSong(){
@@ -324,8 +343,7 @@ public class App
         }
     }
 
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ){
         // welcome user to music library
         System.out.println( "--------------------------------" );
         System.out.println( "Welcome to your music library!" );

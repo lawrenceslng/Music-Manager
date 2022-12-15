@@ -227,6 +227,8 @@ public class AudioDBConnector {
             System.out.println("Album ID: " + idAlbum);
             int idArtist = Integer.parseInt((String) trackArray.get("idArtist"));
             System.out.println("Artist ID: " + idArtist);
+            int numListeners = Integer.parseInt((String) trackArray.get("intTotalListeners"));
+            System.out.println("Number of Listeners: " + numListeners);
 
             // check if artist or album already exists in db
             Artist artistExists = DBConnections.findArtist(idArtist);
@@ -259,6 +261,7 @@ public class AudioDBConnector {
 
             song.setAudioDBId(audioDBId);
             song.setName(songName);
+            song.setLikes(numListeners);
         } catch (ParseException e) {
             System.out.println("Error parsing JSON");
             return;

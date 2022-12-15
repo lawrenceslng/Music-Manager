@@ -22,6 +22,12 @@ public class Library {
     public ArrayList<Song> getSongs() {
         return songs;
     }
+    public ArrayList<Artist> getArtists() {
+        return artists;
+    }
+    public ArrayList<Album> getAlbums() {
+        return albums;
+    }
 
     public void addSong(Song s) {
         songs.add(s);

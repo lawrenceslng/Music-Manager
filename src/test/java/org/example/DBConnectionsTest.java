@@ -8,7 +8,5 @@ class DBConnectionsTest {
 
     @Test
     void getAllSongs() {
-        Library testLibrary = new Library();
-        DBConnections.getAllSongs(testLibrary);
     }
 }
