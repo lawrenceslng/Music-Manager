@@ -141,7 +141,6 @@ public class AudioDBConnector {
             JSONArray artists = (JSONArray) jsonObject.get("artists");
             if(artists == null){
                 System.out.print("Artist not found online...");
-//                System.out.println("--------------------------------");
                 return;
             }
 
@@ -168,7 +167,6 @@ public class AudioDBConnector {
             JSONArray albums = (JSONArray) jsonObject.get("album");
             if(albums == null){
                 System.out.print("Album not found online...");
-//                System.out.println("--------------------------------");
                 return;
             }
 
@@ -204,7 +202,6 @@ public class AudioDBConnector {
             JSONArray track = (JSONArray) jsonObject.get("track");
             if(track == null){
                 System.out.print("Song not found online...");
-//                System.out.println("--------------------------------");
                 return;
             }
 

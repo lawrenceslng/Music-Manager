@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="prelim API calls done">
+    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="refactor DBConnections.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/music-library.db" beforeDir="false" afterPath="$PROJECT_DIR$/music-library.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AudioDBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AudioDBConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DBConnections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DBConnections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Playlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Song.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671087620184</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor DBConnections.java">
+      <created>1671131447922</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671131447922</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,6 +158,7 @@
     <MESSAGE value="tasks 1 + 2 prelim done" />
     <MESSAGE value="tasks 3 + 4 prelim done" />
     <MESSAGE value="prelim API calls done" />
-    <option name="LAST_COMMIT_MESSAGE" value="prelim API calls done" />
+    <MESSAGE value="refactor DBConnections.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor DBConnections.java" />
   </component>
 </project>

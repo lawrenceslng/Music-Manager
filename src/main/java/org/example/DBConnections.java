@@ -40,6 +40,17 @@ public class DBConnections {
         }
         return rs;
     }
+
+    private static boolean queryUpdate(Statement statement, String query){
+        try{
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            // connection close failed.
+            System.err.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
     private static void closeConnection(Connection connection){
         try {
             if (connection != null)
@@ -130,86 +141,47 @@ public class DBConnections {
 
     public static boolean addNewSong(Song song){
         String query = song.toSQL();
-        System.out.println(query);
-        Connection connection = null;
-        try {
-            // create a database connection
-            connection = DriverManager.getConnection("jdbc:sqlite:music-library.db");
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-            statement.executeUpdate(query);
-        } catch (SQLException e) {
-            // if the error message is "out of memory",
-            // it probably means no database file is found
-            System.err.println(e.getMessage());
+        Connection connection = startConnection();
+        Statement statement = statementCreation(connection);
+        boolean updateSuccess = queryUpdate(statement,query);
+        closeConnection(connection);
+
+        if(updateSuccess){
+            return true;
+        } else {
             return false;
-        } finally {
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-            }
         }
-        return true;
     }
 
     public static boolean addNewArtist(Artist artist){
         String query = artist.toSQL();
-        System.out.println(query);
-        Connection connection = null;
-        try {
-            // create a database connection
-            connection = DriverManager.getConnection("jdbc:sqlite:music-library.db");
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-            statement.executeUpdate(query);
-        } catch (SQLException e) {
-            // if the error message is "out of memory",
-            // it probably means no database file is found
-            System.err.println(e.getMessage());
+        Connection connection = startConnection();
+        Statement statement = statementCreation(connection);
+        boolean updateSuccess = queryUpdate(statement,query);
+        closeConnection(connection);
+
+        if(updateSuccess){
+            return true;
+        } else {
             return false;
-        } finally {
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-            }
         }
-        return true;
     }
 
     public static boolean addNewAlbum(Album album){
         String query = album.toSQL();
-        System.out.println(query);
-        Connection connection = null;
-        try {
-            // create a database connection
-            connection = DriverManager.getConnection("jdbc:sqlite:music-library.db");
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-            statement.executeUpdate(query);
-        } catch (SQLException e) {
-            // if the error message is "out of memory",
-            // it probably means no database file is found
-            System.err.println(e.getMessage());
+        Connection connection = startConnection();
+        Statement statement = statementCreation(connection);
+        boolean updateSuccess = queryUpdate(statement,query);
+        closeConnection(connection);
+
+        if(updateSuccess){
+            return true;
+        } else {
             return false;
-        } finally {
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-            }
         }
-        return true;
     }
 
     public static Artist findArtist(int audioDBID){
