@@ -1,3 +1,5 @@
+package org.example;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,7 +13,6 @@ public class Album extends Entity {
     }
 
     public String getName() {
-        System.out.println("this is an album" + super.getName());
         return name;
     }
 

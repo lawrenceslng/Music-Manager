@@ -1,3 +1,5 @@
+package org.example;
+
 public class SongInterval {
     private int length;
 
