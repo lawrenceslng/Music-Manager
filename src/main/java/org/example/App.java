@@ -124,11 +124,9 @@ public class App
         System.out.println( "This will generate a playlist based on number of likes." );
 
         Playlist generatedPlaylist = library.generateRandomPlaylist();
-
         generatedPlaylist.outputXML();
 
         System.out.println( "Playlist generated." );
-
         System.out.println( "--------------------------------" );
     }
 
@@ -203,9 +201,6 @@ public class App
         Song newSong = AudioDBConnector.songSearch(artistName, songName);
 
         if(newSong.name != "") {
-
-
-//        System.out.println(DBConnections.findSong(newSong.getAudioDBId()));
             if (DBConnections.findSong(newSong.getAudioDBId()) != null) {
                 System.out.println("Song already in DB!");
             } else {
@@ -230,17 +225,10 @@ public class App
         Scanner input = new Scanner(System.in);
         System.out.print("Type in artist name here: ");
         String artistName = input.nextLine().trim();
-        System.out.println(artistName);
-        // hit up api
 
-        // use Return Artist details from artist name + Return Discography for an Artist with Album names and year only
         Artist newArtist = AudioDBConnector.artistSearch(artistName);
 
         if(newArtist.name != "") {
-
-
-            // see if artist already exists
-
             if (DBConnections.findArtist(newArtist.getAudioDbId()) != null) {
                 System.out.println("Artist already in DB!");
             } else {
@@ -266,14 +254,9 @@ public class App
         System.out.print("Type in Album name here: ");
         String albumName = input.nextLine().trim();
 
-
-        // hit up api
         Album newAlbum = AudioDBConnector.albumSearch(artistName, albumName);
         System.out.println(newAlbum.getName());
         if(newAlbum.name != "") {
-
-            // see if artist already exists
-
             if (DBConnections.findAlbum(newAlbum.getAudioDbId()) != null) {
                 System.out.println("Album already in DB!");
             } else {
@@ -355,19 +338,14 @@ public class App
     }
 
     public static void main( String[] args ){
-        // welcome user to music library
         System.out.println( "--------------------------------" );
         System.out.println( "Welcome to your music library!" );
         System.out.println( "--------------------------------" );
 
-        // create objects for all data from db
         library = new Library();
-
         DBConnections.populateLibrary(library);
 
         int mainMenuInput = mainMenu();
-//        System.out.println(mainMenuInput);
-
         mainMenuNavigation(mainMenuInput);
     }
 }

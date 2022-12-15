@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="refactor DBConnections.java">
+    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="refactor DBConnections.java again">
+      <change afterPath="$PROJECT_DIR$/music-library_TEST.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music-library.db" beforeDir="false" afterPath="$PROJECT_DIR$/music-library.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AudioDBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AudioDBConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DBConnections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DBConnections.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671131447922</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="refactor DBConnections.java again">
+      <created>1671132411868</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671132411868</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,6 +165,7 @@
     <MESSAGE value="tasks 3 + 4 prelim done" />
     <MESSAGE value="prelim API calls done" />
     <MESSAGE value="refactor DBConnections.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor DBConnections.java" />
+    <MESSAGE value="refactor DBConnections.java again" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor DBConnections.java again" />
   </component>
 </project>
