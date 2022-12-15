@@ -3,8 +3,17 @@ package org.example;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * This class connects to the SQLite DB that contains all the songs, artists, and albums information.
+ *
+ */
 public class DBConnections {
 
+    /**
+     * Starts a connection to the SQLite DB
+     *
+     * @return a Connection object establishing a connection to the SQLite DB
+     */
     private static Connection startConnection() {
         Connection connection = null;
         try {
@@ -17,6 +26,12 @@ public class DBConnections {
         return connection;
     }
 
+    /**
+     * Creates a Statement object to be used for executing SQL queries
+     *
+     * @param connection a Connection object containing the opened connection to the SQLite DB
+     * @return a Statement object ready to be used for executing SQL queries
+     */
     private static Statement statementCreation(Connection connection){
         Statement statement = null;
         try{
@@ -30,6 +45,13 @@ public class DBConnections {
         return statement;
     }
 
+    /**
+     * Executes a SQL query and returns the result
+     *
+     * @param statement the Statement object to be used for executing SQL queries
+     * @param query a String representing the SQL query to be executed
+     * @return a ResultSet object containing the response
+     */
     private static ResultSet queryExecution(Statement statement, String query){
         ResultSet rs = null;
         try{
@@ -41,6 +63,13 @@ public class DBConnections {
         return rs;
     }
 
+    /**
+     * Executes a SQL query that updates the database
+     *
+     * @param statement the Statement object to be used for executing SQL queries
+     * @param query a String representing the SQL query to be executed
+     * @return a boolean value indicating whether the query was successfully executed
+     */
     private static boolean queryUpdate(Statement statement, String query){
         try{
             statement.executeUpdate(query);
@@ -51,6 +80,12 @@ public class DBConnections {
         }
         return true;
     }
+
+    /**
+     * Closes connection to the SQLite DB
+     *
+     * @param connection a Connection object with a connection to the SQLite DB that needs to be closed
+     */
     private static void closeConnection(Connection connection){
         try {
             if (connection != null)
@@ -61,6 +96,11 @@ public class DBConnections {
         }
     }
 
+    /**
+     * Retrieves basic information from the SQLite DB and populates a Library object
+     *
+     * @param library the library to be instantiated/loaded with information
+     */
     public static void populateLibrary(Library library){
         Connection connection = startConnection();
         Statement statement = statementCreation(connection);
@@ -93,6 +133,11 @@ public class DBConnections {
         }
     }
 
+    /**
+     * Retrieves all the artists that exist within the SQLite DB
+     *
+     * @return an Arraylist of String containing all artist names in the DB
+     */
     public static ArrayList<String> getAllArtists(){
         ArrayList<String> artistsList = new ArrayList<String>();
 
@@ -116,6 +161,11 @@ public class DBConnections {
         return artistsList;
     }
 
+    /**
+     * Retrieves all the albums that exist within the SQLite DB
+     *
+     * @return an Arraylist of String containing all album names in the DB
+     */
     public static ArrayList<String> getAllAlbums(){
         ArrayList<String> albumList = new ArrayList<String>();
 
@@ -139,6 +189,12 @@ public class DBConnections {
         return albumList;
     }
 
+    /**
+     * Adds a Song object to the SQLite DB
+     *
+     * @param song the Song object to be added to the DB
+     * @return a boolean value indicating whether the INSERT operation is successful or not
+     */
     public static boolean addNewSong(Song song){
         String query = song.toSQL();
 
@@ -154,6 +210,12 @@ public class DBConnections {
         }
     }
 
+    /**
+     * Adds an Artist object to the SQLite DB
+     *
+     * @param artist the Artist object to be added to the DB
+     * @return a boolean value indicating whether the INSERT operation is successful or not
+     */
     public static boolean addNewArtist(Artist artist){
         String query = artist.toSQL();
 
@@ -169,6 +231,12 @@ public class DBConnections {
         }
     }
 
+    /**
+     * Adds an Album object to the SQLite DB
+     *
+     * @param album the Album object to be added to the DB
+     * @return a boolean value indicating whether the INSERT operation is successful or not
+     */
     public static boolean addNewAlbum(Album album){
         String query = album.toSQL();
 
@@ -184,6 +252,12 @@ public class DBConnections {
         }
     }
 
+    /**
+     * Finds whether an artist exists in the SQLite DB based on AudioDB ID
+     *
+     * @param audioDBID an Integer representing the AudioDB ID of the artist
+     * @return an Artist object containing the requested artist
+     */
     public static Artist findArtist(int audioDBID){
         String query = "SELECT * FROM artists WHERE id == " + audioDBID;
 
@@ -211,7 +285,12 @@ public class DBConnections {
     }
 
 
-
+    /**
+     * Finds whether an album exists in the SQLite DB based on AudioDB ID
+     *
+     * @param audioDBID an Integer representing the AudioDB ID of the album
+     * @return an Album object containing the requested artist
+     */
     public static Album findAlbum(int audioDBID){
         String query = "SELECT * FROM albums WHERE id == " + audioDBID;
 
@@ -237,6 +316,12 @@ public class DBConnections {
         return null;
     }
 
+    /**
+     * Finds whether a song exists in the SQLite DB based on AudioDB ID
+     *
+     * @param audioDBID an Integer representing the AudioDB ID of the song
+     * @return a Song object containing the requested artist
+     */
     public static Song findSong(int audioDBID){
         String query = "SELECT * FROM songs WHERE id == " + audioDBID;
 

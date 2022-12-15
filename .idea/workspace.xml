@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="cleaned App.java">
+    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="refactored XML output and added example file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Album.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AudioDBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AudioDBConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DBConnections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DBConnections.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Playlist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SongInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SongInterval.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671133366579</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="refactored XML output and added example file">
+      <created>1671133770165</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671133770165</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,6 +189,7 @@
     <MESSAGE value="refactor DBConnections.java" />
     <MESSAGE value="refactor DBConnections.java again" />
     <MESSAGE value="cleaned App.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned App.java" />
+    <MESSAGE value="refactored XML output and added example file" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored XML output and added example file" />
   </component>
 </project>

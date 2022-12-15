@@ -13,10 +13,22 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
 
+/**
+ * This class connects to audioDB API:
+ * https://www.theaudiodb.com/api_guide.php
+ *
+ * This hits up various endpoints in order to retrieve song, artist, and album information.
+ */
 public class AudioDBConnector {
 
     private static String baseURL = "https://www.theaudiodb.com/api/v1/json/523532/";
 
+    /**
+     * Returns the complete URL given a specific query.
+     *
+     * @param query the string query to be appended to the base URL of audioDB's API.
+     * @return a URL object representing one of audioDB's API endpoint
+     */
     private static URL formURL(String query){
         URL u;
         try {
@@ -28,6 +40,12 @@ public class AudioDBConnector {
         return u;
     }
 
+    /**
+     * Finds by name whether a user-provided artist exists in AudioDB's database.
+     *
+     * @param artistName a string containing the user-provided artist name
+     * @return an Artist object of the artist the user is looking for
+     */
     public static Artist artistSearch(String artistName) {
         String query = "search.php?s=" + artistName;
         URL url = formURL(query);
@@ -45,6 +63,12 @@ public class AudioDBConnector {
         return newArtist;
     }
 
+    /**
+     * Finds by AudioDB ID whether an artist exists in AudioDB's database
+     *
+     * @param audioDBId an integer representing the ID of an artist in AudioDB
+     * @return an Artist object of the artist that has the specific audioDB ID
+     */
     public static Artist artistIdSearch(int audioDBId) {
         String query = "artist.php?i=" + audioDBId;
         URL url = formURL(query);
@@ -61,6 +85,14 @@ public class AudioDBConnector {
 
         return newArtist;
     }
+
+    /**
+     * Finds by artist name and album name whether an album exists in AudioDB's database
+     *
+     * @param artistName a string containing the user-provided artist name
+     * @param albumName a string containing the user-provided album name
+     * @return an Album object representing the album the user is looking for
+     */
     public static Album albumSearch(String artistName, String albumName) {
         String query = "searchalbum.php?s=" + artistName + "&a=" + albumName;
         URL url = formURL(query);
@@ -77,6 +109,13 @@ public class AudioDBConnector {
 
         return newAlbum;
     }
+
+    /**
+     * Finds by AudioDB ID whether an album exists in AudioDB's database
+     *
+     * @param audioDBId an integer representing the ID of an album in AudioDB
+     * @return an Album object of the artist that has the specific audioDB ID
+     */
     public static Album albumIdSearch(int audioDBId) {
         String query = "album.php?m=" + audioDBId;
         URL url = formURL(query);
@@ -94,6 +133,13 @@ public class AudioDBConnector {
         return newAlbum;
     }
 
+    /**
+     * Finds by artist name and song name whether a song exists in AudioDB's database
+     *
+     * @param artistName a string containing the user-provided artist name
+     * @param songName a string containing the user-provided song name
+     * @return a Song object of the song that the user is looking for
+     */
     public static Song songSearch(String artistName, String songName) {
         String query = "searchtrack.php?s=" + artistName +"&t=" + songName;
         URL url = formURL(query);
@@ -110,6 +156,12 @@ public class AudioDBConnector {
         return newSong;
     }
 
+    /**
+     * Performs an HTTP request to AudioDB and returns the response
+     *
+     * @param url a URL object specifying the endpoint to make the HTTP request to
+     * @return a StringBuilder object containing the API response
+     */
     private static StringBuilder connectToAudioDB(URL url){
         StringBuilder response = new StringBuilder();
         try {
@@ -118,7 +170,6 @@ public class AudioDBConnector {
             int code = httpConnection.getResponseCode();
 
             String message = httpConnection.getResponseMessage();
-//            System.out.println(code + " " + message);
             if (code != HttpURLConnection.HTTP_OK) {
                 return null;
             }
@@ -133,6 +184,13 @@ public class AudioDBConnector {
         }
         return response;
     }
+
+    /**
+     * Parses through the response to an artist search and fills in the Artist object
+     *
+     * @param artist an Artist object to be filled in with information from the API response
+     * @param response a StringBuilder object of the response from the API
+     */
     private static void parseArtistSearchResponse(Artist artist, StringBuilder response){
         try {
             JSONParser parser = new JSONParser();
@@ -159,6 +217,12 @@ public class AudioDBConnector {
         }
     }
 
+    /**
+     * Parses through the response to an album search and fills in the Album object
+     *
+     * @param album an Album object to be filled in with information from the API response
+     * @param response a StringBuilder object of the response from the API
+     */
     private static void parseAlbumSearchResponse(Album album, StringBuilder response){
         try {
             JSONParser parser = new JSONParser();
@@ -194,6 +258,12 @@ public class AudioDBConnector {
         }
     }
 
+    /**
+     * Parses through the response to a song search and fills in the Song object
+     *
+     * @param song a Song object to be filled in with information from the API response
+     * @param response a StringBuilder object of the response from the API
+     */
     private static void parseSongSearchResponse(Song song, StringBuilder response){
         try {
             JSONParser parser = new JSONParser();
@@ -216,8 +286,8 @@ public class AudioDBConnector {
             // check if artist or album already exists in db
             Artist artistExists = DBConnections.findArtist(idArtist);
             Album albumExists = DBConnections.findAlbum(idAlbum);
-            boolean aExists = artistExists != null;
-            boolean alExists = albumExists != null;
+//            boolean aExists = artistExists != null;
+//            boolean alExists = albumExists != null;
 
             song.setName(songName);
             if(artistExists != null){
