@@ -8,6 +8,8 @@ public class Album extends Entity {
     protected ArrayList<Song> songs;
     protected Artist artist;
 
+    protected int audioDbId;
+
     public Album(String name) {
         super(name);
     }
@@ -41,8 +43,16 @@ public class Album extends Entity {
         this.artist = artist;
     }
 
+    public int getAudioDbId() {
+        return audioDbId;
+    }
+
+    public void setAudioDbId(int audioDbId) {
+        this.audioDbId = audioDbId;
+    }
+
     public String toSQL() {
-        return "insert into albums (id, name, artist) values (" + this.entityID + ", \"" + this.name + "\", " + this.artist.entityID + ");";
+        return "insert into albums (id, name, audioDBId, audioDBArtistId) values (" + this.audioDbId + ", \"" + this.name + "\", " + this.audioDbId + ", " + this.artist.audioDbId + ");";
     }
 
     public void fromSQL(ResultSet rs) {

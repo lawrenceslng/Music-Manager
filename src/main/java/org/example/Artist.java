@@ -9,6 +9,7 @@ public class Artist extends Entity {
     protected ArrayList<Song> songs;
     protected ArrayList<Album> albums;
 
+    protected int audioDbId;
     protected String nationality;
 
     public Artist(String name) {
@@ -42,6 +43,15 @@ public class Artist extends Entity {
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
+
+    public int getAudioDbId() {
+        return audioDbId;
+    }
+
+    public void setAudioDbId(int audioDbId) {
+        this.audioDbId = audioDbId;
+    }
+
     public boolean equals(Artist otherArtist) {
         if (this.name.equals(otherArtist.getName())) {
             return true;
@@ -50,7 +60,7 @@ public class Artist extends Entity {
         }
     }
     public String toSQL() {
-        return "insert into artists (id, name) values (" + this.entityID + ", \"" + this.name + "\");";
+        return "INSERT INTO artists (id, name, audioDBId, country) VALUES (" + this.audioDbId + ", \"" + this.name + "\", " + this.audioDbId + ", \"" + this.nationality + "\");";
     }
 
     public void fromSQL(ResultSet rs) {

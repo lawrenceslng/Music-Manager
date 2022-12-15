@@ -59,7 +59,7 @@ public class App
             System.out.println("Type '1' to display songs in the library");
             System.out.println("Type '2' to display artists in the library");
             System.out.println("Type '3' to display albums in the library");
-//            System.out.println("Type '4' to display songs+artists+albums in the library");
+            System.out.println("Type '4' to display songs+artists+albums in the library");
 
             System.out.println("Type '0' to go back");
 
@@ -133,10 +133,6 @@ public class App
     }
 
     private static void displayAllSongs(){
-//        System.out.println("display all songs here");
-
-        // create db connection and retrieve all songs
-
         ArrayList<Song> songList = library.getSongs();
         int numOfSongs = songList.size();
 
@@ -148,8 +144,6 @@ public class App
     }
 
     private static void displayAllArtists(){
-//        System.out.println("display all artists here");
-
         ArrayList<String> artistList = DBConnections.getAllArtists();
         int numOfArtists = artistList.size();
 
@@ -161,8 +155,6 @@ public class App
     }
 
     private static void displayAllAlbums(){
-//        System.out.println("display all albums here");
-
         ArrayList<String> albumList = DBConnections.getAllAlbums();
         int numOfAlbums = albumList.size();
 
@@ -173,7 +165,7 @@ public class App
         System.out.println( "--------------------------------" );
     }
 
-//    private static void displayComprehensive(){
+    private static void displayComprehensive(){
 //        String leftAlignFormat = "| %-25s | %-25s |%-25s |%n";
 //        System.out.format("+------------------------------+------------------------+------------------------+%n");
 //        System.out.format("| Song name     | Artist   |  Album    |%n");
@@ -182,27 +174,41 @@ public class App
 //            System.out.format(leftAlignFormat, "some data" + i, "some artist", "some album");
 //        }
 //        System.out.format("+-----------------+------+%n");
-//    }
+    }
 
     private static void addNewSong(){
         Scanner input = new Scanner(System.in);
+        System.out.print("Type in artist name here: ");
+        String artistName = input.nextLine();
+        System.out.println(artistName);
         System.out.print("Type in song name here: ");
         String songName = input.nextLine();
         System.out.println(songName);
         // hit up api
 
+        Song newSong = AudioDBConnector.songSearch(artistName, songName);
         // use Return track details from artist/track name
 
         // if found match, then populate DB, otherwise ask to type again
 
         // get additional info
+        System.out.println("new song DB ID: " + newSong.getAudioDBId());
+//        System.out.println(DBConnections.findSong(newSong.getAudioDBId()));
+        if(DBConnections.findSong(newSong.getAudioDBId()) != null){
+            System.out.println("Song already in DB!");
+        } else {
+            // store in DB
+            System.out.println("Storing song in DB ... ");
+            library.addSong(newSong);
+            boolean success = DBConnections.addNewSong(newSong);
+            if(success){
+                System.out.println("Song added to DB");
+            } else {
+                System.out.println("System Error... returning to last menu...");
+            }
+        }
 
 
-        // store in DB
-        System.out.println("Storing song in DB ... ");
-
-
-        System.out.println("Song added to DB");
         System.out.println("--------------------------------");
     }
 
@@ -214,36 +220,51 @@ public class App
         // hit up api
 
         // use Return Artist details from artist name + Return Discography for an Artist with Album names and year only
-        AudioDBConnector.artistSearch(artistName);
+        Artist newArtist = AudioDBConnector.artistSearch(artistName);
 
-        // get additional info
+        // see if artist already exists
 
-
-        // store in DB
-        System.out.println("Storing artist in DB ... ");
-
-
-        System.out.println("Artist added to DB");
+        if(DBConnections.findArtist(newArtist.getAudioDbId()) != null){
+            System.out.println("Artist already in DB!");
+        } else {
+            // store in DB
+            System.out.println("Storing artist in DB ... ");
+            boolean success = DBConnections.addNewArtist(newArtist);
+            if(success){
+                System.out.println("Artist added to DB!");
+            } else {
+                System.out.println("System Error... returning to last menu...");
+            }
+        }
         System.out.println("--------------------------------");
     }
 
     private static void addNewAlbum(){
         Scanner input = new Scanner(System.in);
+        System.out.print("Type in artist name here: ");
+        String artistName = input.nextLine();
+        System.out.println(artistName);
         System.out.print("Type in Album name here: ");
         String albumName = input.nextLine();
 
 
         // hit up api
+        Album newAlbum = AudioDBConnector.albumSearch(artistName, albumName);
 
+        // see if artist already exists
 
-        // get additional info
-
-
-        // store in DB
-        System.out.println("Storing album in DB ... ");
-
-
-        System.out.println("Album added to DB");
+        if(DBConnections.findAlbum(newAlbum.getAudioDbId()) != null){
+            System.out.println("Album already in DB!");
+        } else {
+            // store in DB
+            System.out.println("Storing Album in DB ... ");
+            boolean success = DBConnections.addNewAlbum(newAlbum);
+            if(success){
+                System.out.println("Album added to DB!");
+            } else {
+                System.out.println("System Error... returning to last menu...");
+            }
+        }
         System.out.println("--------------------------------");
     }
 
@@ -264,10 +285,10 @@ public class App
                         displayAllAlbums();
                         mainMenuNavigation(mainMenu());
                         break;
-//                    case 4:
-//                        displayComprehensive();
-//                        mainMenuNavigation(mainMenu());
-//                        break;
+                    case 4:
+                        displayComprehensive();
+                        mainMenuNavigation(mainMenu());
+                        break;
                     default:
                         mainMenuNavigation(mainMenu());
                         break;

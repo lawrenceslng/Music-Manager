@@ -11,6 +11,8 @@ public class Song extends Entity implements Comparable<Song>{
 
     protected int likes;
 
+    protected int audioDBId;
+
     public Song() { super(); }
     public Song(String name) {
         super(name);
@@ -71,6 +73,14 @@ public class Song extends Entity implements Comparable<Song>{
         this.likes = likes;
     }
 
+    public int getAudioDBId() {
+        return audioDBId;
+    }
+
+    public void setAudioDBId(int audioDBId) {
+        this.audioDBId = audioDBId;
+    }
+
     public String toString() {
         return super.toString() + " " + this.performer + " " + this.album + " " + this.duration;
 
@@ -84,8 +94,8 @@ public class Song extends Entity implements Comparable<Song>{
         return "<song id=\"" + this.entityID + "\"><title>" + this.name + "</title><artist id=\"" + this.performer.entityID + "\">" + this.performer.getName() + "</artist><album id=\"" + this.album.entityID +">"+ this.album.getName() + "</album><length>" + this.duration + "</length><likes>" + this.likes + "</likes></song>";
     }
     public String toSQL() {
-        return "insert into songs (id, name, album, artist) values (" + this.entityID + ", \"" + this.name + "\", " + album.entityID + ", "
-                + performer.entityID  + ");";
+        return "insert into songs (id, name, audioDBArtistId, audioDBAlbumId) values (" + this.audioDBId + ", \"" + this.name + "\", "
+                + this.performer.audioDbId  + ", " + this.album.audioDbId + ");";
     }
 
     public void fromSQL(ResultSet rs) {

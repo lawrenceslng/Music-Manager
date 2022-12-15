@@ -1,5 +1,5 @@
 CREATE TABLE songs (id INTEGER NOT NULL PRIMARY KEY, audioDBId INTEGER, name VARCHAR(50), artist integer, audioDBArtistId INTEGER, album integer, audioDBAlbumId INTEGER, duration INTEGER, likes INTEGER, genre TEXT);
-CREATE TABLE albums (id INTEGER NOT NULL PRIMARY KEY, audioDBId INTEGER, name TEXT NOT NULL, artist INTEGER, nSongs INTEGER);
+CREATE TABLE albums (id INTEGER NOT NULL PRIMARY KEY, audioDBId INTEGER, name TEXT NOT NULL, artist INTEGER, audioDBArtistId INTEGER, nSongs INTEGER);
 CREATE TABLE artists (id INTEGER NOT NULL PRIMARY KEY, audioDBId INTEGER, nAlbums INTEGER, name TEXT NOT NULL, nSongs INTEGER, country TEXT);
 
 
@@ -21,3 +21,6 @@ SELECT songs.name, artists.name, albums.name FROM songs INNER JOIN artists ON so
 
 
 
+DROP TABLE songs;
+DROP TABLE albums;
+DROP TABLE artists;

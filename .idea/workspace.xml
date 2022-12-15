@@ -4,21 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AudioDBConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DBConnections.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Playlist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/DBConnectionsTest.java" afterDir="false" />
+    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="tasks 1 + 2 prelim done">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/AudioDBConnectorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/music-library.db" beforeDir="false" afterPath="$PROJECT_DIR$/music-library.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Album.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Artist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AudioDBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AudioDBConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DBConnections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DBConnections.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Song.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SongInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SongInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +118,14 @@
       <option name="presentableId" value="Default" />
       <updated>1670437573731</updated>
     </task>
+    <task id="LOCAL-00001" summary="tasks 1 + 2 prelim done">
+      <created>1671067963228</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671067963228</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,5 +138,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tasks 1 + 2 prelim done" />
+    <option name="LAST_COMMIT_MESSAGE" value="tasks 1 + 2 prelim done" />
   </component>
 </project>
