@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.example.AudioDBConnectorTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.124 s - in org.example.AudioDBConnectorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.326 s - in org.example.AudioDBConnectorTest

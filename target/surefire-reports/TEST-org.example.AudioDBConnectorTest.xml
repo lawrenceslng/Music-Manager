@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.example.AudioDBConnectorTest" time="4.124" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.example.AudioDBConnectorTest" time="1.326" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="18"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -13,7 +13,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-18.0.2.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/surefire/surefirebooter-20221215214233011_3.jar /Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/surefire 2022-12-15T21-42-32_859-jvmRun1 surefire-20221215214233011_1tmp surefire_0-20221215214233011_2tmp"/>
+    <property name="sun.java.command" value="/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/surefire/surefirebooter-20221216085857174_3.jar /Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/surefire 2022-12-16T08-58-57_047-jvmRun1 surefire-20221216085857174_1tmp surefire_0-20221216085857174_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/test-classes:/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/classes:/Users/lawrence/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/Users/lawrence/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/Users/lawrence/.m2/repository/org/xerial/sqlite-jdbc/3.40.0.0/sqlite-jdbc-3.40.0.0.jar:/Users/lawrence/.m2/repository/org/junit/jupiter/junit-jupiter/5.9.0/junit-jupiter-5.9.0.jar:/Users/lawrence/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.0/junit-jupiter-api-5.9.0.jar:/Users/lawrence/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/lawrence/.m2/repository/org/junit/platform/junit-platform-commons/1.9.0/junit-platform-commons-1.9.0.jar:/Users/lawrence/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/lawrence/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.0/junit-jupiter-params-5.9.0.jar:/Users/lawrence/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.0/junit-jupiter-engine-5.9.0.jar:/Users/lawrence/.m2/repository/org/junit/platform/junit-platform-engine/1.9.0/junit-platform-engine-1.9.0.jar:"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/surefire/surefirebooter-20221215214233011_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/surefire/surefirebooter-20221216085857174_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="18.0.2+9-61"/>
@@ -57,9 +57,9 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="62.0"/>
   </properties>
-  <testcase name="testAlbumSearch" classname="org.example.AudioDBConnectorTest" time="0.768"/>
-  <testcase name="testAlbumIdSearch" classname="org.example.AudioDBConnectorTest" time="0.406"/>
-  <testcase name="testArtistIdSearch" classname="org.example.AudioDBConnectorTest" time="0.892"/>
-  <testcase name="testArtistSearch" classname="org.example.AudioDBConnectorTest" time="1.724"/>
-  <testcase name="testSongSearch" classname="org.example.AudioDBConnectorTest" time="0.331"/>
+  <testcase name="testAlbumSearch" classname="org.example.AudioDBConnectorTest" time="0.389"/>
+  <testcase name="testAlbumIdSearch" classname="org.example.AudioDBConnectorTest" time="0.184"/>
+  <testcase name="testArtistIdSearch" classname="org.example.AudioDBConnectorTest" time="0.225"/>
+  <testcase name="testArtistSearch" classname="org.example.AudioDBConnectorTest" time="0.34"/>
+  <testcase name="testSongSearch" classname="org.example.AudioDBConnectorTest" time="0.185"/>
 </testsuite>

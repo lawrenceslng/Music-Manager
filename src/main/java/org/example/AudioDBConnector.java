@@ -281,7 +281,12 @@ public class AudioDBConnector {
             int audioDBId = Integer.parseInt((String) trackArray.get("idTrack"));
             int idAlbum = Integer.parseInt((String) trackArray.get("idAlbum"));
             int idArtist = Integer.parseInt((String) trackArray.get("idArtist"));
-            int numListeners = Integer.parseInt((String) trackArray.get("intTotalListeners"));
+            int numListeners;
+            if(trackArray.get("intTotalListeners") != null){
+                numListeners = Integer.parseInt((String) trackArray.get("intTotalListeners"));
+            } else {
+                numListeners = 0;
+            }
 
             // check if artist or album already exists in db
             Artist artistExists = DBConnections.findArtist(idArtist);

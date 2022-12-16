@@ -4,9 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="updated README">
+    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="updated README to include Javadocs info">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music-library.db" beforeDir="false" afterPath="$PROJECT_DIR$/music-library.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music-library_TEST.db" beforeDir="false" afterPath="$PROJECT_DIR$/music-library_TEST.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AudioDBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AudioDBConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/AudioDBConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/AudioDBConnector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.AlbumTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.AlbumTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.ArtistTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.ArtistTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.AudioDBConnectorTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.AudioDBConnectorTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.DBConnectionsTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.DBConnectionsTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.EntityTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.EntityTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.PlaylistTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.PlaylistTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.SongIntervalTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.SongIntervalTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.SongTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.example.SongTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/org.example.AlbumTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/org.example.AlbumTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/org.example.AudioDBConnectorTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/org.example.AudioDBConnectorTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/org.example.DBConnectionsTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/org.example.DBConnectionsTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/org.example.PlaylistTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/org.example.PlaylistTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/org.example.SongIntervalTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/org.example.SongIntervalTest.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +84,20 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DBConnectionsTest">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.App" />
+      <module name="Music-Manager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All Runs" type="JUnit" factoryName="JUnit">
       <module name="Music-Manager" />
       <option name="PACKAGE_NAME" value="" />
@@ -125,22 +155,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DBConnectionsTest.addNewSong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Music-Manager" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.DBConnectionsTest" />
-      <option name="METHOD_NAME" value="addNewSong" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Music-Manager [test]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -167,20 +181,20 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.App" />
       <item itemvalue="JUnit.All Runs" />
       <item itemvalue="JUnit.DBConnectionsTest" />
       <item itemvalue="JUnit.DBConnectionsTest.addNewAlbum" />
       <item itemvalue="JUnit.DBConnectionsTest.addNewArtist" />
-      <item itemvalue="JUnit.DBConnectionsTest.addNewSong" />
       <item itemvalue="Maven.Music-Manager [test]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.DBConnectionsTest" />
         <item itemvalue="Maven.Music-Manager [test]" />
         <item itemvalue="JUnit.DBConnectionsTest.addNewAlbum" />
         <item itemvalue="JUnit.DBConnectionsTest.addNewArtist" />
-        <item itemvalue="JUnit.DBConnectionsTest.addNewSong" />
       </list>
     </recent_temporary>
   </component>
@@ -291,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671172255076</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="updated README to include Javadocs info">
+      <created>1671209318739</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1671209318739</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -320,6 +341,7 @@
     <MESSAGE value="refined readme" />
     <MESSAGE value="added target directory for javadocs" />
     <MESSAGE value="updated README" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated README" />
+    <MESSAGE value="updated README to include Javadocs info" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated README to include Javadocs info" />
   </component>
 </project>
