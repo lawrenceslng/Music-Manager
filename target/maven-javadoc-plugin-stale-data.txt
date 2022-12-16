@@ -1,0 +1,48 @@
+@options
+@packages
+--class-path
+'/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/classes:/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/test-classes:/Users/lawrence/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/Users/lawrence/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/Users/lawrence/.m2/repository/org/xerial/sqlite-jdbc/3.40.0.0/sqlite-jdbc-3.40.0.0.jar:/Users/lawrence/.m2/repository/org/junit/jupiter/junit-jupiter/5.9.0/junit-jupiter-5.9.0.jar:/Users/lawrence/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.0/junit-jupiter-api-5.9.0.jar:/Users/lawrence/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/lawrence/.m2/repository/org/junit/platform/junit-platform-commons/1.9.0/junit-platform-commons-1.9.0.jar:/Users/lawrence/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/lawrence/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.0/junit-jupiter-params-5.9.0.jar:/Users/lawrence/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.0/junit-jupiter-engine-5.9.0.jar:/Users/lawrence/.m2/repository/org/junit/platform/junit-platform-engine/1.9.0/junit-platform-engine-1.9.0.jar'
+-encoding
+'UTF-8'
+-public
+-source
+'18'
+-sourcepath
+'/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/src/test/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Music-Manager 1.0-SNAPSHOT Test API'
+-link
+'../apidocs'
+-use
+-version
+-windowtitle
+'Music-Manager 1.0-SNAPSHOT Test API'
+org.example
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/src/test/java = 1670437576836
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/tag-search-index.js = 1671151715817
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/overview-tree.html = 1671151715811
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/module-search-index.js = 1671151715816
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/index.html = 1671151715821
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/package-search-index.js = 1671151715817
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/jquery-ui.overrides.css = 1671151715829
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/index-all.html = 1671151715820
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/allpackages-index.html = 1671151715816
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/member-search-index.js = 1671151715817
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/copy.svg = 1671151715825
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/script.js = 1671151715825
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/stylesheet.css = 1671151715824
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/help-doc.html = 1671151715823
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/javadoc.sh = 1671151584788
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/element-list = 1671151715799
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/allclasses-index.html = 1671151715815
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/type-search-index.js = 1671151715817
+/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/target/site/testapidocs/search.js = 1671151715825
