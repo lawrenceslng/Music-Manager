@@ -14,9 +14,12 @@ import java.util.Scanner;
  * 2) The user can add new songs, artists, or albums to the database.
  * 3) The user can output an XML file of the songs in the library with a specified minimum number of likes.
  *
- * To run the code ...
  *
- * This App class
+ *
+ */
+
+/**
+ * This is the main class of the program
  */
 public class App 
 {

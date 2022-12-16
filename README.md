@@ -43,7 +43,7 @@ If choosing to input information (option 2), users are presented with submenu wi
 
 Note: to add new song or album requires providing both artist name and song/album name
 
-If choosing to generate a XML file (option 3), users are prompted to input the minimum number of listeners they would like as the requirement for all songs in the playlist to be generated.
+If choosing to generate a XML file (option 3), users are prompted to input the minimum number of listeners they would like as the requirement for all songs in the playlist to be generated. The file is then generated in the root directory with the name `playlist_outputXML.xml`.
 
 At all stages, the user is presented with option '0' to go back or exit the program.
 
