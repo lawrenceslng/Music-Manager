@@ -3,6 +3,10 @@ package org.example;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -77,6 +81,26 @@ class DBConnectionsTest {
 
         // remove song manually from DB afterwards
         // delete from songs where name = 'Song 1';
+        String query = "delete from songs where name = 'Song 1';";
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:sqlite:music-library.db");
+            Statement statement = connection.createStatement();
+            statement.setQueryTimeout(30);  // set timeout to 30 sec.
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        } finally {
+            try {
+                if (connection != null)
+                    connection.close();
+            } catch (SQLException e) {
+                // connection close failed.
+                System.err.println(e.getMessage());
+            }
+        }
     }
 
     @Test
@@ -102,6 +126,26 @@ class DBConnectionsTest {
 
         // remove artist manually from DB afterwards
         // delete from artists where name = 'Artist 1';
+        String query = "delete from artists where name = 'Artist 1';";
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:sqlite:music-library.db");
+            Statement statement = connection.createStatement();
+            statement.setQueryTimeout(30);  // set timeout to 30 sec.
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        } finally {
+            try {
+                if (connection != null)
+                    connection.close();
+            } catch (SQLException e) {
+                // connection close failed.
+                System.err.println(e.getMessage());
+            }
+        }
     }
 
     @Test
@@ -127,6 +171,27 @@ class DBConnectionsTest {
 
         // remove albums manually from DB afterwards
         // delete from albums where name = 'Album 1';
+        String query = "delete from albums where name = 'Album 1';";
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:sqlite:music-library.db");
+            Statement statement = connection.createStatement();
+            statement.setQueryTimeout(30);  // set timeout to 30 sec.
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        } finally {
+            try {
+                if (connection != null)
+                    connection.close();
+            } catch (SQLException e) {
+                // connection close failed.
+                System.err.println(e.getMessage());
+            }
+        }
+
     }
 
     @Test

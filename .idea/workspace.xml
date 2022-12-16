@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="javadocs comments added">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/AlbumTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/ArtistTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/EntityTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/PlaylistTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/SongIntervalTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/SongTest.java" afterDir="false" />
+    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="unit tests added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/music-library.db" beforeDir="false" afterPath="$PROJECT_DIR$/music-library.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/music-library_TEST.db" beforeDir="false" afterPath="$PROJECT_DIR$/music-library_TEST.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SongInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SongInterval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AudioDBConnectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/AudioDBConnectorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/DBConnectionsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/DBConnectionsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,9 +52,9 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_opened_file_path": "/Users/lawrence/Desktop/USF/Fall_2022/CS_514/Homework/Music-Manager/Music-Manager/src/main/java/org/example",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.16129035"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -79,6 +72,16 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.DBConnectionsTest">
+    <configuration name="All Runs" type="JUnit" factoryName="JUnit">
+      <module name="Music-Manager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DBConnectionsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Music-Manager" />
       <extension name="coverage">
@@ -142,29 +145,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DBConnectionsTest.populateLibrary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Music-Manager" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.DBConnectionsTest" />
-      <option name="METHOD_NAME" value="populateLibrary" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="Music-Manager [test]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="test" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JUnit.All Runs" />
+      <item itemvalue="JUnit.DBConnectionsTest" />
+      <item itemvalue="JUnit.DBConnectionsTest.addNewAlbum" />
+      <item itemvalue="JUnit.DBConnectionsTest.addNewArtist" />
+      <item itemvalue="JUnit.DBConnectionsTest.addNewSong" />
+      <item itemvalue="Maven.Music-Manager [test]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.DBConnectionsTest" />
+        <item itemvalue="Maven.Music-Manager [test]" />
         <item itemvalue="JUnit.DBConnectionsTest.addNewAlbum" />
         <item itemvalue="JUnit.DBConnectionsTest.addNewArtist" />
         <item itemvalue="JUnit.DBConnectionsTest.addNewSong" />
-        <item itemvalue="JUnit.DBConnectionsTest.populateLibrary" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671145033320</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="unit tests added">
+      <created>1671166827566</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1671166827566</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,6 +283,7 @@
     <MESSAGE value="cleaned App.java" />
     <MESSAGE value="refactored XML output and added example file" />
     <MESSAGE value="javadocs comments added" />
-    <option name="LAST_COMMIT_MESSAGE" value="javadocs comments added" />
+    <MESSAGE value="unit tests added" />
+    <option name="LAST_COMMIT_MESSAGE" value="unit tests added" />
   </component>
 </project>
