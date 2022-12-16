@@ -15,6 +15,8 @@ This application utilizes the following packages, technologies, and resources:
 - SQLite DB
 - AudioDB API
 
+The javadocs should be in the `target/` directory -> `site/` -> `apidocs/`. 
+
 ## How To Get Started
 - clone the repo using HTTP or SSH
 - navigate to the root directory
