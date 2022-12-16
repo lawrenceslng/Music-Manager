@@ -4,18 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="refactored XML output and added example file">
+    <list default="true" id="b12c1d62-4082-410b-a86d-f606530bcd22" name="Changes" comment="javadocs comments added">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/AlbumTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/ArtistTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/EntityTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/PlaylistTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/SongIntervalTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/SongTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Album.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Artist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AudioDBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AudioDBConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DBConnections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DBConnections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Playlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music-library.db" beforeDir="false" afterPath="$PROJECT_DIR$/music-library.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music-library_TEST.db" beforeDir="false" afterPath="$PROJECT_DIR$/music-library_TEST.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SongInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SongInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AudioDBConnectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/AudioDBConnectorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/DBConnectionsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/DBConnectionsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +37,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Ib5iq6NwnEsPbLKZMI9U2UcjA5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -73,21 +78,8 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.App" />
-      <module name="Music-Manager" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DBConnectionsTest.getAllSongs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.DBConnectionsTest">
+    <configuration name="DBConnectionsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Music-Manager" />
       <extension name="coverage">
         <pattern>
@@ -97,7 +89,70 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example" />
       <option name="MAIN_CLASS_NAME" value="org.example.DBConnectionsTest" />
-      <option name="METHOD_NAME" value="getAllSongs" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DBConnectionsTest.addNewAlbum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Music-Manager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.DBConnectionsTest" />
+      <option name="METHOD_NAME" value="addNewAlbum" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DBConnectionsTest.addNewArtist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Music-Manager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.DBConnectionsTest" />
+      <option name="METHOD_NAME" value="addNewArtist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DBConnectionsTest.addNewSong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Music-Manager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.DBConnectionsTest" />
+      <option name="METHOD_NAME" value="addNewSong" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DBConnectionsTest.populateLibrary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Music-Manager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.DBConnectionsTest" />
+      <option name="METHOD_NAME" value="populateLibrary" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -105,8 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.DBConnectionsTest.getAllSongs" />
+        <item itemvalue="JUnit.DBConnectionsTest" />
+        <item itemvalue="JUnit.DBConnectionsTest.addNewAlbum" />
+        <item itemvalue="JUnit.DBConnectionsTest.addNewArtist" />
+        <item itemvalue="JUnit.DBConnectionsTest.addNewSong" />
+        <item itemvalue="JUnit.DBConnectionsTest.populateLibrary" />
       </list>
     </recent_temporary>
   </component>
@@ -168,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671133770165</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="javadocs comments added">
+      <created>1671145033320</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1671145033320</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,6 +255,7 @@
     <MESSAGE value="refactor DBConnections.java again" />
     <MESSAGE value="cleaned App.java" />
     <MESSAGE value="refactored XML output and added example file" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored XML output and added example file" />
+    <MESSAGE value="javadocs comments added" />
+    <option name="LAST_COMMIT_MESSAGE" value="javadocs comments added" />
   </component>
 </project>

@@ -23,7 +23,11 @@ public class SongInterval {
     public String toString() {
         int minutes = length / 60;
         int seconds = length % 60;
-        return String.format("%d:%d", minutes, seconds);
+        String secondsString = String.valueOf(seconds);
+        if(seconds < 10){
+            secondsString = "0" + secondsString;
+        }
+        return String.format("%d:" + secondsString, minutes);
 
     }
 
